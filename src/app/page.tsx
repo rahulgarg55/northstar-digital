@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Code2, Layers3, MessageCircle, Smartphone, Sparkles } from "lucide-react";
 import { AgencyFooter, AgencyHeader, SectionEyebrow } from "@/components/agency/site";
-import { agencyServices, featuredProject } from "@/lib/agency";
+import { ProjectCaseCard } from "@/components/agency/project-case-card";
+import { agencyServices, selectedProjects } from "@/lib/agency";
 
 export const metadata = {
   title: "Northstar Studio — Thoughtful digital products, built to move you forward",
@@ -81,32 +82,15 @@ export default function HomePage() {
         <div className="agency-work-inner">
           <div className="agency-section-heading agency-work-heading">
             <div><SectionEyebrow>Selected work</SectionEyebrow><h2>Built with purpose.<br /><span>Made to work.</span></h2></div>
-            <p>One real product from our own workbench. We&apos;ll add client projects only when we have permission and verified details to share.</p>
+            <p>Explore two live products from our workbench, from engineering workflows to agency reporting.</p>
           </div>
-          <Link href={`/work/${featuredProject.slug}`} className="agency-case-card">
-            <div className="agency-case-preview">
-              <div className="agency-preview-window">
-                <div className="agency-preview-bar"><span /><span /><span /><i>bugtracker / projects</i></div>
-                <div className="agency-preview-app">
-                  <div className="agency-preview-sidebar"><b>BT</b><i /><i /><i /><i /></div>
-                  <div className="agency-preview-content">
-                    <div className="agency-preview-kicker">WORKSPACE / OVERVIEW</div>
-                    <strong>Engineering, in sync.</strong>
-                    <div className="agency-preview-widgets"><i /><i /><i /></div>
-                    <div className="agency-preview-task"><span /><i /><em /></div>
-                    <div className="agency-preview-task"><span /><i /><em /></div>
-                    <div className="agency-preview-task"><span /><i /><em /></div>
-                  </div>
-                </div>
-              </div>
-              <span className="agency-preview-label">Interface preview · In-house product</span>
-            </div>
-            <div className="agency-case-info">
-              <span className="agency-case-type">{featuredProject.type}</span>
-              <div className="agency-case-title"><h3>{featuredProject.name}</h3><span className="agency-round-arrow"><ArrowUpRight size={19} /></span></div>
-              <p>{featuredProject.description}</p>
-              <span className="agency-case-stack">{featuredProject.stack.map((item) => <i key={item}>{item}</i>)}</span>
-            </div>
+          <div className="agency-project-grid">
+            {selectedProjects.map((project) => (
+              <ProjectCaseCard key={project.slug} project={project} />
+            ))}
+          </div>
+          <Link className="agency-inline-link" href="/work">
+            Explore all selected work <ArrowRight size={16} />
           </Link>
         </div>
       </section>

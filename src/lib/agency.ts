@@ -111,17 +111,45 @@ export const agencyServices = [
   },
 ] as const;
 
-export const featuredProject = {
-  slug: "bug-tracker",
-  name: "BugTracker",
-  type: "In-house SaaS product",
-  description:
-    "An engineering management product for issue tracking, projects, sprint planning, and team workflows.",
-  stack: ["Next.js", "React", "TypeScript", "Prisma"],
-  capabilities: [
-    "Issue tracking and project workflows",
-    "Sprint planning and release management",
-    "Multi-tenant workspaces and role-based access",
-  ],
-  sourceUrl: "https://github.com/Priyamittal-dev/bug-tracker",
-} as const;
+export const selectedProjects = [
+  {
+    slug: "bug-tracker",
+    name: "BugTracker",
+    mark: "BT",
+    type: "In-house SaaS product",
+    headline: "Engineering work, in sync.",
+    description:
+      "An engineering workspace for managing issues, projects, sprints, and releases.",
+    detail:
+      "BugTracker brings issue tracking, project work, sprint planning, and release workflows together in a multi-tenant workspace.",
+    liveUrl: "https://bug-tracker-ochre-tau.vercel.app/login",
+    liveLinkLabel: "Open BugTracker",
+    capabilities: [
+      "Issue tracking and project workflows",
+      "Sprint planning and release management",
+      "Organization workspaces and role-based access",
+    ],
+    stack: ["Next.js", "React", "TypeScript", "Prisma"],
+    sourceUrl: "https://github.com/Priyamittal-dev/bug-tracker",
+  },
+  {
+    slug: "report-iq",
+    name: "ReportIQ",
+    mark: "RI",
+    type: "In-house reporting product",
+    headline: "Client reporting, less manual.",
+    description:
+      "An AI-assisted client reporting product presented for agencies and their reporting workflows.",
+    detail:
+      "ReportIQ's public site describes a reporting workflow that brings together Google Analytics and time-tracking data, with AI-written summaries, branded reports, and scheduled delivery.",
+    liveUrl: "https://report-iq-topaz.vercel.app/",
+    liveLinkLabel: "Explore ReportIQ",
+    capabilities: [
+      "Google Analytics and time-tracking data for client reports",
+      "AI-written summaries and branded PDF exports",
+      "Scheduled delivery and shareable web reports",
+    ],
+    stack: [],
+    sourceUrl: null,
+  },
+] as const;
