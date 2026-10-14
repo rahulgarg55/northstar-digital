@@ -82,7 +82,7 @@ export default function HomePage() {
         <div className="agency-work-inner">
           <div className="agency-section-heading agency-work-heading">
             <div><SectionEyebrow>Selected work</SectionEyebrow><h2>Built with purpose.<br /><span>Made to work.</span></h2></div>
-            <p>Explore two live products from our workbench, from engineering workflows to agency reporting.</p>
+            <p>Explore live products and demos from our workbench, spanning engineering workflows, agency reporting, and e-commerce.</p>
           </div>
           <div className="agency-project-grid">
             {selectedProjects.map((project) => (

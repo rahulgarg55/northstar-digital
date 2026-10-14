@@ -209,9 +209,11 @@
 .agency-project-card-info { padding: 18px 20px 20px; }
 .agency-project-card-info h3 { margin: 8px 0 6px; font-size: 19px; font-weight: 650; letter-spacing: -.045em; }
 .agency-project-card-info > p { min-height: 42px; margin: 0; color: var(--agency-copy); font-size: 11px; line-height: 1.8; }
-.agency-project-overview-link, .agency-project-visit-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 10px; font-weight: 650; }
+.agency-project-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; margin-top: 14px; }
+.agency-project-overview-link, .agency-project-visit-link, .agency-project-repo-link { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 650; }
 .agency-project-overview-link { color: #6b775e !important; }
-.agency-project-visit-link { float: right; color: #465f37 !important; }
+.agency-project-visit-link { color: #465f37 !important; }
+.agency-project-repo-link { color: #576f45 !important; }
 .agency-project-live-panel { display: flex; align-items: center; gap: 15px; margin-top: 34px; padding: 20px; border: 1px solid #e1e4dd; border-radius: 8px; background: #fff; }
 .agency-project-live-panel > div { flex: 1; }
 .agency-project-live-panel > div > strong { font-size: 13px; }

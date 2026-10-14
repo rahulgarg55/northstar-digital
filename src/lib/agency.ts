@@ -117,6 +117,7 @@ export const selectedProjects = [
     name: "BugTracker",
     mark: "BT",
     type: "In-house SaaS product",
+    liveStatusLabel: "Live product",
     headline: "Engineering work, in sync.",
     description:
       "An engineering workspace for managing issues, projects, sprints, and releases.",
@@ -130,13 +131,14 @@ export const selectedProjects = [
       "Organization workspaces and role-based access",
     ],
     stack: ["Next.js", "React", "TypeScript", "Prisma"],
-    sourceUrl: "https://github.com/Priyamittal-dev/bug-tracker",
+    sourceUrl: "https://github.com/rahulgarg55/bug-tracker",
   },
   {
     slug: "report-iq",
     name: "ReportIQ",
     mark: "RI",
     type: "In-house reporting product",
+    liveStatusLabel: "Live product",
     headline: "Client reporting, less manual.",
     description:
       "An AI-assisted client reporting product presented for agencies and their reporting workflows.",
@@ -151,5 +153,26 @@ export const selectedProjects = [
     ],
     stack: [],
     sourceUrl: null,
+  },
+  {
+    slug: "ecommerce-storefront",
+    name: "E-commerce storefront",
+    mark: "EC",
+    type: "Portfolio demo",
+    liveStatusLabel: "Live demo",
+    headline: "A storefront, ready to browse.",
+    description:
+      "A Bootstrap-based storefront demo with product listings, detail pages, and a shopping cart.",
+    detail:
+      "This e-commerce demo presents a browsable storefront, with separate pages for product listings, product details, and a cart.",
+    liveUrl: "https://rahulgarg55.github.io/Ecommerce-Website-Clone/",
+    liveLinkLabel: "Open storefront demo",
+    capabilities: [
+      "Storefront homepage and product listings",
+      "Product detail and cart pages",
+      "Responsive storefront interface",
+    ],
+    stack: ["Bootstrap", "HTML", "CSS"],
+    sourceUrl: "https://github.com/rahulgarg55/Ecommerce-Website-Clone",
   },
 ] as const;

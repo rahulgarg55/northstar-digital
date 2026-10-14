@@ -30,7 +30,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className="agency-project-live-panel">
           <span className="agency-project-mark">{project.mark}</span>
           <div>
-            <strong>{project.name} is live</strong>
+            <strong>{project.name} · {project.liveStatusLabel}</strong>
             <p>Visit the product to explore it for yourself.</p>
           </div>
           <a className="agency-button agency-button-light" href={project.liveUrl} target="_blank" rel="noreferrer">
