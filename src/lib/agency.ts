@@ -155,6 +155,50 @@ export const selectedProjects = [
     sourceUrl: null,
   },
   {
+    slug: "aetherdesk",
+    name: "AetherDesk Tracker",
+    mark: "AD",
+    type: "Workforce Telemetry & Desktop SaaS",
+    liveStatusLabel: "Live platform",
+    headline: "Workforce telemetry, privacy-first.",
+    description:
+      "An enterprise desktop monitoring and workforce productivity intelligence platform with offline telemetry sync, encryption, and tenant isolation.",
+    detail:
+      "AetherDesk delivers enterprise desktop monitoring, real-time activity tracking, automated screenshot telemetry with privacy masking, multi-tenant organization workspaces, and granular compliance controls.",
+    liveUrl: "http://localhost:5173",
+    liveLinkLabel: "Explore AetherDesk",
+    capabilities: [
+      "Cross-platform desktop monitoring and telemetry",
+      "Multi-tenant organization workspaces and role-based access",
+      "Offline activity queue with cryptographic event sync",
+      "Privacy masking and employee consent compliance controls",
+    ],
+    stack: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "Vite", "Electron"],
+    sourceUrl: "https://github.com/rahulgarg55/aetherdesk",
+  },
+  {
+    slug: "productivity-tracker",
+    name: "Productivity Intelligence Tracker",
+    mark: "PT",
+    type: "Telemetry Analytics & Scoring Engine",
+    liveStatusLabel: "Live engine",
+    headline: "Automated work session scoring.",
+    description:
+      "A lightweight Python-based productivity telemetry engine with automated application classification, focus scoring, and live dashboards.",
+    detail:
+      "Productivity Tracker captures active window telemetry, categorizes desktop workflows into productive, distracted, or idle states, and computes real-time productivity scores with REST APIs.",
+    liveUrl: "http://localhost:8000",
+    liveLinkLabel: "Open Productivity Dashboard",
+    capabilities: [
+      "Real-time application activity telemetry",
+      "Automated productive vs. distracted classification",
+      "Instant focus score aggregation and analytics",
+      "RESTful telemetry APIs with Bearer token authentication",
+    ],
+    stack: ["Python", "FastAPI", "SQLite", "Uvicorn", "Tailwind CSS"],
+    sourceUrl: "https://github.com/rahulgarg55/productivity-tracker",
+  },
+  {
     slug: "ecommerce-storefront",
     name: "E-commerce storefront",
     mark: "EC",

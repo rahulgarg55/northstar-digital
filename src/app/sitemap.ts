@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { agencyServices, selectedProjects } from "@/lib/agency";
+import { techArticles } from "@/lib/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://northstardigital.studio";
@@ -8,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "daily",
       priority: 1.0,
     },
     {
@@ -21,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/work`,
       lastModified: new Date(),
       changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
       priority: 0.9,
     },
     {
@@ -56,8 +63,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     routes.push({
       url: `${baseUrl}/work/${work.slug}`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    });
+  });
+
+  techArticles.forEach((article) => {
+    routes.push({
+      url: `${baseUrl}/blog/${article.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
     });
   });
 

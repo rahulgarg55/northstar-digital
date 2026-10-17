@@ -12,6 +12,7 @@ export function AgencyHeader() {
         <div className="agency-nav-links">
           <Link href="/services">Services</Link>
           <Link href="/work">Selected work</Link>
+          <Link href="/blog">Articles</Link>
           <Link href="/#approach">Approach</Link>
         </div>
         <Link className="agency-nav-cta" href="/contact">
@@ -22,6 +23,7 @@ export function AgencyHeader() {
           <div className="agency-mobile-links">
             <Link href="/services">Services</Link>
             <Link href="/work">Selected work</Link>
+            <Link href="/blog">Articles</Link>
             <Link href="/#approach">Approach</Link>
             <Link href="/contact">Start a project <ArrowRight size={15} /></Link>
           </div>
@@ -48,6 +50,7 @@ export function AgencyFooter() {
           <a href="tel:+917807221279">Call</a>
           <Link href="/services">Services</Link>
           <Link href="/work">Work</Link>
+          <Link href="/blog">Articles</Link>
           <Link href="/privacy">Privacy</Link>
           <Link href="/terms">Terms</Link>
         </div>

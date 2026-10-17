@@ -1,0 +1,44 @@
+name: Daily Technical Article Automation
+
+on:
+  schedule:
+    # Runs every day at 06:00 AM UTC (11:30 AM IST)
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  publish-daily-article:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate daily technical article
+        run: node scripts/generate-daily-article.mjs
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/lib/articles.ts
+          if git diff --staged --quiet; then
+            echo "No new articles to commit."
+          else
+            git commit -m "docs(blog): auto-publish daily technical article [skip ci]"
+            git push origin main
+          fi
