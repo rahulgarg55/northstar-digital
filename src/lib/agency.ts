@@ -1,21 +1,3 @@
-export interface DemoChapter {
-  time: string;
-  seconds: number;
-  title: string;
-  pageName: string;
-  pageUrl: string;
-  description: string;
-  screenType: string;
-}
-
-export interface DemoVideoInfo {
-  title: string;
-  badge: string;
-  duration: string;
-  totalSeconds: number;
-  chapters: DemoChapter[];
-}
-
 export const agencyServices = [
   {
     slug: "web-development",
@@ -150,59 +132,6 @@ export const selectedProjects = [
     ],
     stack: ["Next.js", "React", "TypeScript", "Prisma"],
     sourceUrl: "https://github.com/rahulgarg55/bug-tracker",
-    demoVideo: {
-      title: "BugTracker — Complete Website & Product Walkthrough",
-      badge: "Full Website Walkthrough",
-      duration: "3:20",
-      totalSeconds: 200,
-      chapters: [
-        {
-          time: "0:00",
-          seconds: 0,
-          title: "Sign-In & Multi-Tenant Onboarding",
-          pageName: "Authentication Portal",
-          pageUrl: "http://localhost:3001/login",
-          description: "Google OAuth, GitHub SSO, and credentials login with light/dark theme toggle.",
-          screenType: "login",
-        },
-        {
-          time: "0:45",
-          seconds: 45,
-          title: "Organization Workspace & Project Overview",
-          pageName: "Workspace Switcher",
-          pageUrl: "http://localhost:3001/org/northstar",
-          description: "Instant switching between isolated client organization workspaces with role-based access control.",
-          screenType: "workspace",
-        },
-        {
-          time: "1:30",
-          seconds: 90,
-          title: "Interactive Sprint Kanban Board",
-          pageName: "Sprint 42 Board",
-          pageUrl: "http://localhost:3001/sprints/active",
-          description: "Drag-and-drop ticket state transitions across Backlog, In Progress, In Review, and Done columns.",
-          screenType: "kanban",
-        },
-        {
-          time: "2:15",
-          seconds: 135,
-          title: "Rich Markdown Issue Editor & Task Lifecycle",
-          pageName: "Issue Editor (#BT-104)",
-          pageUrl: "http://localhost:3001/issues/BT-104",
-          description: "Full markdown editor, reproduction steps, code snippet attachments, and priority labels.",
-          screenType: "editor",
-        },
-        {
-          time: "2:50",
-          seconds: 170,
-          title: "Milestone Releases & Automated Changelogs",
-          pageName: "Releases & Changelogs",
-          pageUrl: "http://localhost:3001/releases/v2.4.0",
-          description: "Version release tagging, milestone burndown analytics, and GitHub repo synchronization.",
-          screenType: "releases",
-        },
-      ],
-    },
   },
   {
     slug: "report-iq",
@@ -222,61 +151,8 @@ export const selectedProjects = [
       "AI-written summaries and branded PDF exports",
       "Scheduled delivery and shareable web reports",
     ],
-    stack: ["NestJS", "Next.js", "TypeScript", "Tailwind CSS"],
-    sourceUrl: "https://github.com/rahulgarg55/ReportIQ",
-    demoVideo: {
-      title: "ReportIQ — Complete Website & Product Walkthrough",
-      badge: "Full Website Walkthrough",
-      duration: "3:10",
-      totalSeconds: 190,
-      chapters: [
-        {
-          time: "0:00",
-          seconds: 0,
-          title: "Agency Landing Page & Value Proposition",
-          pageName: "Studio Landing",
-          pageUrl: "http://localhost:3002/",
-          description: "Overview of automated client reporting, source integrations, and whitelabel templates.",
-          screenType: "landing",
-        },
-        {
-          time: "0:40",
-          seconds: 40,
-          title: "Data Connectors & Telemetry Ingestion Hub",
-          pageName: "Integrations & Sources",
-          pageUrl: "http://localhost:3002/integrations",
-          description: "Connecting Google Analytics 4, Clockify time sheets, and developer hours via webhooks.",
-          screenType: "integrations",
-        },
-        {
-          time: "1:25",
-          seconds: 85,
-          title: "Generative AI Executive Narrative Generator",
-          pageName: "AI Summary Engine",
-          pageUrl: "http://localhost:3002/ai-summary",
-          description: "Synthesizing raw traffic anomalies, conversion spikes, and progress milestones into client narratives.",
-          screenType: "ai-summary",
-        },
-        {
-          time: "2:05",
-          seconds: 125,
-          title: "Custom Branded PDF Previewer & Template Editor",
-          pageName: "Report Previewer",
-          pageUrl: "http://localhost:3002/reports/preview",
-          description: "Whitelabel React-rendered PDF exports with agency logos, custom fonts, and KPI cards.",
-          screenType: "pdf",
-        },
-        {
-          time: "2:40",
-          seconds: 160,
-          title: "Automated Recurring Email Dispatch Cron",
-          pageName: "Delivery Scheduler",
-          pageUrl: "http://localhost:3002/schedules",
-          description: "Automated monthly dispatch to client executives with encrypted delivery verification.",
-          screenType: "schedules",
-        },
-      ],
-    },
+    stack: [],
+    sourceUrl: null,
   },
   {
     slug: "aetherdesk",
@@ -299,59 +175,6 @@ export const selectedProjects = [
     ],
     stack: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "Vite", "Electron"],
     sourceUrl: "https://github.com/rahulgarg55/aetherdesk",
-    demoVideo: {
-      title: "AetherDesk Tracker — Complete Website & Product Walkthrough",
-      badge: "Full Website Walkthrough",
-      duration: "3:30",
-      totalSeconds: 210,
-      chapters: [
-        {
-          time: "0:00",
-          seconds: 0,
-          title: "Employee Consent & Onboarding Portal",
-          pageName: "Onboarding & Consent",
-          pageUrl: "https://raid-fish-lil-ist.trycloudflare.com/",
-          description: "Transparent employee disclosure and system tray agent status setup under GDPR Art. 6.",
-          screenType: "onboarding",
-        },
-        {
-          time: "0:45",
-          seconds: 45,
-          title: "Live Activity & Productivity Dashboard",
-          pageName: "Live Telemetry Dashboard",
-          pageUrl: "https://raid-fish-lil-ist.trycloudflare.com/dashboard",
-          description: "Real-time active window timeline, productivity score breakdown, and idle detection.",
-          screenType: "dashboard",
-        },
-        {
-          time: "1:30",
-          seconds: 90,
-          title: "Screenshot Gallery with Automated Privacy Masking",
-          pageName: "Privacy Mask Gallery",
-          pageUrl: "https://raid-fish-lil-ist.trycloudflare.com/screenshots",
-          description: "Automatic Gaussian blur masking over password fields and banking screens before cloud sync.",
-          screenType: "screenshots",
-        },
-        {
-          time: "2:15",
-          seconds: 135,
-          title: "Organization Workspaces & Multi-Tenant Access",
-          pageName: "Organization Settings",
-          pageUrl: "https://raid-fish-lil-ist.trycloudflare.com/settings/org",
-          description: "Seat management, role-based access policies (Admin, Lead, Employee), and tenant isolation.",
-          screenType: "organizations",
-        },
-        {
-          time: "2:55",
-          seconds: 175,
-          title: "Security, Encryption & GDPR Compliance Center",
-          pageName: "Compliance Center",
-          pageUrl: "https://raid-fish-lil-ist.trycloudflare.com/compliance",
-          description: "Local AES-256-GCM encryption verification, retention policies, and self-service erasure requests.",
-          screenType: "compliance",
-        },
-      ],
-    },
   },
   {
     slug: "productivity-tracker",
@@ -374,50 +197,6 @@ export const selectedProjects = [
     ],
     stack: ["Python", "FastAPI", "SQLite", "Uvicorn", "Tailwind CSS"],
     sourceUrl: "https://github.com/rahulgarg55/productivity-tracker",
-    demoVideo: {
-      title: "Productivity Intelligence Tracker — Complete Website & Product Walkthrough",
-      badge: "Full Website Walkthrough",
-      duration: "2:40",
-      totalSeconds: 160,
-      chapters: [
-        {
-          time: "0:00",
-          seconds: 0,
-          title: "Real-Time Telemetry Dashboard",
-          pageName: "Live Focus Dashboard",
-          pageUrl: "http://localhost:8000/",
-          description: "Circular focus score gauge, active window indicator (VS Code), and deep work status.",
-          screenType: "dashboard",
-        },
-        {
-          time: "0:40",
-          seconds: 40,
-          title: "Application Classification & Time Breakdown",
-          pageName: "App Categorization",
-          pageUrl: "http://localhost:8000/#breakdown",
-          description: "Visual breakdown of developer apps: VS Code (64%), Terminal (21%), Chrome Research (15%).",
-          screenType: "breakdown",
-        },
-        {
-          time: "1:20",
-          seconds: 80,
-          title: "Historical Focus Trends & Session Velocity",
-          pageName: "Session Analytics",
-          pageUrl: "http://localhost:8000/#analytics",
-          description: "Rolling mathematical focus curves, productive burst intervals, and daily averages.",
-          screenType: "analytics",
-        },
-        {
-          time: "2:00",
-          seconds: 120,
-          title: "Interactive OpenAPI Swagger Documentation",
-          pageName: "REST API Swagger Docs",
-          pageUrl: "http://localhost:8000/docs",
-          description: "Executing live authenticated /api/stats endpoints and JSON payload verification.",
-          screenType: "api",
-        },
-      ],
-    },
   },
   {
     slug: "ecommerce-storefront",
@@ -439,49 +218,5 @@ export const selectedProjects = [
     ],
     stack: ["Bootstrap", "HTML", "CSS"],
     sourceUrl: "https://github.com/rahulgarg55/Ecommerce-Website-Clone",
-    demoVideo: {
-      title: "E-Commerce Storefront — Complete Website & Product Walkthrough",
-      badge: "Full Website Walkthrough",
-      duration: "2:30",
-      totalSeconds: 150,
-      chapters: [
-        {
-          time: "0:00",
-          seconds: 0,
-          title: "Storefront Catalog & Featured Collections",
-          pageName: "Storefront Home",
-          pageUrl: "https://rahulgarg55.github.io/Ecommerce-Website-Clone/",
-          description: "Hero promotion banners, new arrivals grid, and category navigation bars.",
-          screenType: "catalog",
-        },
-        {
-          time: "0:40",
-          seconds: 40,
-          title: "Faceted Search & Price Range Filters",
-          pageName: "Category Search",
-          pageUrl: "https://rahulgarg55.github.io/Ecommerce-Website-Clone/#filter",
-          description: "Dynamic product filtering by price slider, customer ratings, and brand checkboxes.",
-          screenType: "filter",
-        },
-        {
-          time: "1:20",
-          seconds: 80,
-          title: "Product Detail View & Variant Selector",
-          pageName: "Product Detail View",
-          pageUrl: "https://rahulgarg55.github.io/Ecommerce-Website-Clone/#detail",
-          description: "Interactive image gallery, color/size variant selection, and live inventory counter.",
-          screenType: "detail",
-        },
-        {
-          time: "1:55",
-          seconds: 115,
-          title: "Shopping Cart State & Checkout Simulation",
-          pageName: "Cart & Checkout Review",
-          pageUrl: "https://rahulgarg55.github.io/Ecommerce-Website-Clone/#cart",
-          description: "Slide-over cart drawer, discount coupon calculations, and checkout confirmation flow.",
-          screenType: "cart",
-        },
-      ],
-    },
   },
 ] as const;

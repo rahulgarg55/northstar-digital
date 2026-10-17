@@ -388,25 +388,6 @@ html.dark .agency-float-avatar { color: #042f2e; }
 .agency-project-overview-link { color: var(--agency-muted) !important; font-size: 11px; font-weight: 600; }
 .agency-project-overview-link:hover { color: var(--agency-ink) !important; }
 .agency-project-visit-link { color: var(--agency-lime) !important; font-size: 11px; font-weight: 700; }
-.agency-project-demo-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  border-radius: 6px;
-  padding: 4px 10px;
-  color: var(--agency-lime) !important;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-.agency-project-demo-btn:hover {
-  background: rgba(16, 185, 129, 0.22);
-  border-color: rgba(16, 185, 129, 0.6);
-  transform: translateY(-1px);
-}
 .agency-project-repo-link { color: var(--agency-copy) !important; font-size: 11px; }
 
 
