@@ -240,7 +240,7 @@ export async function executeScheduledReport(clientOrgId: string) {
 
 Automating report generation reduces turnaround time from days to seconds, elevating client transparency while allowing engineering and design teams to focus on core product delivery.
 `,
-  },,
+  },
   {
     slug: "zero-trust-cloud-architecture-microservices",
     title: "Implementing Zero-Trust Architecture across Microservices and Cloud Run",

@@ -184,7 +184,7 @@ function appendArticle(fileContent, article) {
   },
 ];`;
 
-  const updatedContent = fileContent.replace(/\s*\];\s*$/, `,\n${articleSnippet}\n`);
+  const updatedContent = fileContent.replace(/,?\s*\];\s*$/, `,\n${articleSnippet}\n`);
   fs.writeFileSync(ARTICLES_FILE, updatedContent, "utf-8");
   console.log(`Successfully published "${article.title}" to ${ARTICLES_FILE}!`);
 }

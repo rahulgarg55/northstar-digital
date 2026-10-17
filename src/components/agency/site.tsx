@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowDownRight, ArrowRight, Asterisk } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 export function AgencyHeader() {
   return (
@@ -15,9 +16,12 @@ export function AgencyHeader() {
           <Link href="/blog">Articles</Link>
           <Link href="/#approach">Approach</Link>
         </div>
-        <Link className="agency-nav-cta" href="/contact">
-          Let&apos;s talk <ArrowRight size={15} />
-        </Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link className="agency-nav-cta" href="/contact">
+            Let&apos;s talk <ArrowRight size={15} />
+          </Link>
+        </div>
         <details className="agency-mobile-menu">
           <summary aria-label="Open navigation menu"><span /><span /></summary>
           <div className="agency-mobile-links">
@@ -26,6 +30,10 @@ export function AgencyHeader() {
             <Link href="/blog">Articles</Link>
             <Link href="/#approach">Approach</Link>
             <Link href="/contact">Start a project <ArrowRight size={15} /></Link>
+            <div className="pt-2 mt-2 border-t border-white/10 flex items-center justify-between px-2">
+              <span className="text-xs text-slate-400">Theme</span>
+              <ThemeToggle />
+            </div>
           </div>
         </details>
       </nav>

@@ -665,3 +665,291 @@
 @media (prefers-reduced-motion: reduce) {
   .agency-page *, .agency-page *::before, .agency-page *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* ==========================================================================
+   Light Mode Theme Overrides
+   ========================================================================== */
+
+html.light .agency-page,
+html:not(.dark) .agency-page {
+  --agency-ink: #0f172a;
+  --agency-copy: #334155;
+  --agency-paper: #f8fafc;
+  --agency-lime: #059669;
+  --agency-line: rgba(0, 0, 0, 0.08);
+  background: radial-gradient(circle at 50% 0%, #ffffff 0%, #f1f5f9 65%);
+  color: var(--agency-ink);
+}
+
+html.light .agency-header {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+html.light .agency-brand-light {
+  color: #64748b;
+}
+html.light .agency-nav-links {
+  color: #334155;
+}
+html.light .agency-nav-links a:hover {
+  color: #059669;
+}
+html.light .agency-nav-cta {
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #0f172a;
+}
+html.light .agency-nav-cta:hover {
+  background: #059669;
+  border-color: #059669;
+  color: #ffffff;
+}
+
+html.light .agency-hero {
+  background: radial-gradient(circle at 60% 30%, #f8fafc 0%, #e2e8f0 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+html.light .agency-hero::before {
+  border-color: rgba(0, 0, 0, 0.05);
+}
+html.light .agency-hero::after {
+  border-color: rgba(0, 0, 0, 0.03);
+}
+html.light .agency-location {
+  color: #475569;
+}
+html.light .agency-hero h1,
+html.light .agency-subpage-hero h1,
+html.light .agency-contact-intro h1,
+html.light .agency-project-page h1 {
+  color: #0f172a;
+}
+html.light .agency-hero-description {
+  color: #334155;
+}
+html.light .agency-hero-proof {
+  color: #64748b;
+}
+html.light .agency-text-link {
+  color: #334155 !important;
+}
+html.light .agency-text-link:hover {
+  color: #059669 !important;
+}
+html.light .agency-button-outline {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #0f172a !important;
+}
+html.light .agency-button-outline:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+html.light .agency-capability-strip {
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+html.light .agency-capability strong {
+  color: #0f172a;
+}
+html.light .agency-capability > div > span {
+  color: #475569;
+}
+
+html.light .agency-section-heading h2,
+html.light .agency-detail-section h2,
+html.light .agency-project-details h2 {
+  color: #0f172a;
+}
+html.light .agency-section-heading h2 span {
+  color: #64748b;
+}
+html.light .agency-section-heading > p {
+  color: #334155;
+}
+
+html.light .agency-service-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+html.light .agency-service-card:hover {
+  background: #ffffff;
+  border-color: rgba(5, 150, 105, 0.4);
+  box-shadow: 0 15px 35px -5px rgba(5, 150, 105, 0.1);
+}
+html.light .agency-service-card h2,
+html.light .agency-service-card h3 {
+  color: #0f172a;
+}
+html.light .agency-service-card p {
+  color: #334155;
+}
+
+html.light .agency-work-section {
+  background: radial-gradient(circle at 50% 50%, #f8fafc 0%, #f1f5f9 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+html.light .agency-case-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.07);
+}
+html.light .agency-case-title h2,
+html.light .agency-case-title h3 {
+  color: #0f172a;
+}
+html.light .agency-case-info > p {
+  color: #334155;
+}
+html.light .agency-case-stack i {
+  background: #f1f5f9;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #334155;
+}
+
+html.light .agency-step h3 {
+  color: #0f172a;
+}
+html.light .agency-step p {
+  color: #334155;
+}
+
+html.light .agency-project-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+html.light .agency-project-identity {
+  background: radial-gradient(ellipse at 50% 120%, rgba(5, 150, 105, 0.12) 0%, rgba(241, 245, 249, 0.9) 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+html.light .agency-project-identity-name {
+  color: #0f172a;
+}
+html.light .agency-project-identity-type {
+  color: #64748b;
+}
+html.light .agency-project-card-info h3 {
+  color: #0f172a;
+}
+html.light .agency-project-card-info > p {
+  color: #334155;
+}
+
+html.light .agency-project-live-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+html.light .agency-project-live-panel > div > strong {
+  color: #0f172a;
+}
+html.light .agency-project-live-panel > div > p {
+  color: #475569;
+}
+
+html.light .agency-form-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.06);
+}
+html.light .agency-form-heading h2 {
+  color: #0f172a;
+}
+html.light .agency-form-heading p {
+  color: #475569;
+}
+html.light .agency-contact-form label {
+  color: #1e293b;
+}
+html.light .agency-contact-form input,
+html.light .agency-contact-form select,
+html.light .agency-contact-form textarea {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+html.light .agency-contact-form input:focus,
+html.light .agency-contact-form select:focus,
+html.light .agency-contact-form textarea:focus {
+  border-color: #059669;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+}
+html.light .agency-contact-form select option {
+  background: #ffffff;
+  color: #0f172a;
+}
+html.light .agency-contact-methods a {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+html.light .agency-contact-methods a:hover {
+  background: #ffffff;
+  border-color: rgba(5, 150, 105, 0.3);
+}
+html.light .agency-contact-methods strong {
+  color: #0f172a;
+}
+
+html.light .agency-subpage-hero {
+  background: radial-gradient(circle at 50% 0%, #ffffff 0%, #f1f5f9 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+html.light .agency-subpage-hero > p {
+  color: #334155;
+}
+
+html.light .agency-cta-section {
+  background: radial-gradient(circle at 50% 0%, #f1f5f9 0%, #e2e8f0 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+html.light .agency-cta-section h2 {
+  color: #0f172a;
+}
+html.light .agency-cta-section > p {
+  color: #334155;
+}
+
+html.light .agency-footer {
+  background: #f1f5f9;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+html.light .agency-footer-links a {
+  color: #334155;
+}
+html.light .agency-footer-links a:hover {
+  color: #059669;
+}
+html.light .agency-footer-bottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  color: #64748b;
+}
+
+html.light .agency-detail-section {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+html.light .agency-deliverables > div {
+  color: #0f172a;
+}
+html.light .agency-deliverables > p {
+  color: #475569;
+}
+html.light .agency-project-details {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+html.light .agency-project-details > div > p {
+  color: #334155;
+}
+html.light .agency-project-details li {
+  color: #0f172a;
+}
+html.light .agency-project-meta > div strong {
+  color: #0f172a;
+}
