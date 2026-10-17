@@ -30,8 +30,8 @@ export function AgencyHeader() {
             <Link href="/blog">Articles</Link>
             <Link href="/#approach">Approach</Link>
             <Link href="/contact">Start a project <ArrowRight size={15} /></Link>
-            <div className="pt-2 mt-2 border-t border-white/10 flex items-center justify-between px-2">
-              <span className="text-xs text-slate-400">Theme</span>
+            <div className="pt-2 mt-2 flex items-center justify-between px-2" style={{ borderTop: "1px solid var(--agency-line)" }}>
+              <span className="text-xs font-medium" style={{ color: "var(--agency-muted)" }}>Theme</span>
               <ThemeToggle />
             </div>
           </div>

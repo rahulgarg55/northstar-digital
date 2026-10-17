@@ -48,7 +48,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   if (!mounted) {
     return (
       <div
-        className={`w-9 h-9 rounded-lg border border-white/10 bg-white/5 ${className}`}
+        className={`agency-theme-btn w-9 h-9 rounded-lg border border-white/10 bg-white/5 ${className}`}
         aria-hidden="true"
       />
     );
