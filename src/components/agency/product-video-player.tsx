@@ -4,32 +4,22 @@ import { useEffect, useRef, useState } from "react";
 import {
   Activity,
   ArrowUpRight,
-  BarChart3,
-  Calendar,
   CheckCircle2,
-  Clock,
-  Code2,
   Cpu,
   Download,
   ExternalLink,
-  FastForward,
-  FileText,
-  Filter,
-  Globe,
+  Film,
   Layers,
   Lock,
   Maximize2,
+  MousePointer,
   Pause,
   Play,
   RotateCcw,
-  Search,
-  Server,
   Shield,
   ShieldCheck,
   ShoppingBag,
   Sparkles,
-  User,
-  Users,
   Volume2,
   VolumeX,
 } from "lucide-react";
@@ -37,16 +27,37 @@ import type { selectedProjects } from "@/lib/agency";
 
 type Project = (typeof selectedProjects)[number];
 
-export function ProductVideoPlayer({ project }: { project: Project }) {
-  const [isPlaying, setIsPlaying] = useState(false);
+export function ProductVideoPlayer({
+  project,
+  autoStart = false,
+  onOpenTheater,
+}: {
+  project: Project;
+  autoStart?: boolean;
+  onOpenTheater?: () => void;
+}) {
+  const [isPlaying, setIsPlaying] = useState(autoStart);
   const [currentSeconds, setCurrentSeconds] = useState(0);
   const [speed, setSpeed] = useState<number>(1);
   const [isMuted, setIsMuted] = useState(false);
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
+  const [cursorClicked, setCursorClicked] = useState(false);
   const playerRef = useRef<HTMLDivElement>(null);
 
   const demo = project.demoVideo;
   const totalSeconds = demo?.totalSeconds || 180;
+
+  // Auto-play on mount if autoStart is true
+  useEffect(() => {
+    if (autoStart) setIsPlaying(true);
+  }, [autoStart]);
+
+  // Click ripple simulation on chapter change
+  useEffect(() => {
+    setCursorClicked(true);
+    const timeout = setTimeout(() => setCursorClicked(false), 600);
+    return () => clearTimeout(timeout);
+  }, [activeChapterIndex]);
 
   // Simulation timer that advances chapters
   useEffect(() => {
@@ -113,9 +124,18 @@ export function ProductVideoPlayer({ project }: { project: Project }) {
 
   const progressPercent = Math.min(100, (currentSeconds / totalSeconds) * 100);
 
+  // Dynamic animated cursor coordinates based on chapter
+  const cursorCoords = [
+    { top: "68%", left: "50%" },
+    { top: "42%", left: "38%" },
+    { top: "54%", left: "58%" },
+    { top: "36%", left: "74%" },
+    { top: "72%", left: "44%" },
+  ][activeChapterIndex % 5];
+
   return (
-    <div className="agency-video-showcase my-12" ref={playerRef}>
-      {/* Top Header Information */}
+    <div className="agency-video-showcase my-8" ref={playerRef}>
+      {/* Top Header Information & Actions */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2">
           <span
@@ -134,15 +154,26 @@ export function ProductVideoPlayer({ project }: { project: Project }) {
           </span>
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-mono text-slate-400 hidden sm:inline">
-            Viewing: <strong className="text-emerald-400">{currentChapter.pageName}</strong>
-          </span>
+        <div className="flex items-center gap-2">
+          {onOpenTheater && (
+            <button
+              type="button"
+              onClick={onOpenTheater}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border text-white transition-all hover:bg-white/10 cursor-pointer"
+              style={{
+                borderColor: "rgba(255, 255, 255, 0.15)",
+                backgroundColor: "rgba(255, 255, 255, 0.05)",
+              }}
+            >
+              <Maximize2 size={13} /> Theater Mode
+            </button>
+          )}
+
           <a
             href={currentChapter.pageUrl || project.liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg border hover:underline transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border hover:underline transition-colors"
             style={{
               backgroundColor: "rgba(16, 185, 129, 0.12)",
               borderColor: "rgba(16, 185, 129, 0.3)",
@@ -202,7 +233,7 @@ export function ProductVideoPlayer({ project }: { project: Project }) {
 
         {/* Dynamic Interactive Website Viewport Screen */}
         <div
-          className="relative min-h-[380px] sm:min-h-[460px] flex flex-col justify-between p-4 sm:p-6 cursor-pointer select-none group"
+          className="relative min-h-[400px] sm:min-h-[480px] flex flex-col justify-between p-4 sm:p-6 cursor-pointer select-none group overflow-hidden"
           onClick={togglePlay}
           style={{
             background:
@@ -224,6 +255,31 @@ export function ProductVideoPlayer({ project }: { project: Project }) {
             }}
           />
 
+          {/* Simulated Animated Cursor with Click Ripple */}
+          {isPlaying && (
+            <div
+              className="absolute z-30 pointer-events-none transition-all duration-700 ease-out flex items-center gap-1"
+              style={{
+                top: cursorCoords.top,
+                left: cursorCoords.left,
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <div className="relative">
+                <MousePointer
+                  size={20}
+                  className="text-white fill-emerald-500 drop-shadow-md"
+                />
+                {cursorClicked && (
+                  <span className="absolute -top-1 -left-1 w-6 h-6 rounded-full border-2 border-emerald-400 animate-ping opacity-75" />
+                )}
+              </div>
+              <span className="px-1.5 py-0.5 rounded bg-black/80 text-[9px] text-emerald-300 font-mono border border-white/10 shadow">
+                Click
+              </span>
+            </div>
+          )}
+
           {/* Top Stage Bar */}
           <div className="relative z-10 flex items-center justify-between text-xs mb-4">
             <div className="flex items-center gap-2">
@@ -236,7 +292,7 @@ export function ProductVideoPlayer({ project }: { project: Project }) {
             </div>
 
             <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-black/40 text-slate-400 border border-white/10">
-              {isPlaying ? "▶ PLAYING WALKTHROUGH" : "⏸ PAUSED (CLICK TO PLAY)"}
+              {isPlaying ? "▶ PLAYING UI TOUR" : "⏸ PAUSED (CLICK TO PLAY)"}
             </span>
           </div>
 
@@ -427,9 +483,6 @@ export function ProductVideoPlayer({ project }: { project: Project }) {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <button className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-xs border border-white/15 flex items-center gap-1.5">
-                        <FileText size={13} /> Export Tenant Audit Log (JSON)
-                      </button>
                       <button className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-xs border border-white/15 flex items-center gap-1.5">
                         <Shield size={13} /> Verify Cryptographic Hash Signatures
                       </button>
@@ -835,9 +888,22 @@ export function ProductVideoPlayer({ project }: { project: Project }) {
             )}
           </div>
 
+          {/* Floating Live Voiceover Subtitle Banner */}
+          <div className="relative z-20 my-2 px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/15 backdrop-blur-md shadow-xl flex items-center justify-between gap-3 text-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="text-slate-300 leading-snug">
+                <strong className="text-emerald-400">Step {activeChapterIndex + 1}:</strong> {currentChapter.description}
+              </span>
+            </div>
+            <span className="text-[10px] text-slate-400 font-mono shrink-0 hidden sm:inline">
+              {currentChapter.pageName}
+            </span>
+          </div>
+
           {/* Bottom Video Progress Scrubber & Controls */}
           <div
-            className="relative z-10 pt-4 mt-auto"
+            className="relative z-10 pt-2 mt-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Scrubber Bar */}

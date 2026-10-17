@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { AgencyFooter, AgencyHeader, SectionEyebrow } from "@/components/agency/site";
-import { ProductVideoPlayer } from "@/components/agency/product-video-player";
+import { ProjectDemoSection } from "@/components/agency/project-demo-section";
 import { selectedProjects } from "@/lib/agency";
 
 export function generateStaticParams() {
@@ -39,8 +39,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </a>
         </div>
 
-        {/* Product Demo Video Walkthrough */}
-        <ProductVideoPlayer project={project} />
+        {/* Product Demo Video Walkthrough with Theater Modal */}
+        <ProjectDemoSection project={project} />
 
         <div className="agency-project-details">
           <div><SectionEyebrow>About the product</SectionEyebrow><h2>{project.headline}</h2></div>

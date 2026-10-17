@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { selectedProjects } from "@/lib/agency";
 import { ProductVideoPlayer } from "./product-video-player";
+import { VideoWalkthroughModal } from "./video-modal";
 import { Play, Sparkles, Video } from "lucide-react";
 
 export function InteractiveDemoShowcase() {
   const [selectedSlug, setSelectedSlug] = useState<string>("aetherdesk");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const currentProject =
     selectedProjects.find((p) => p.slug === selectedSlug) || selectedProjects[2];
@@ -60,7 +62,19 @@ export function InteractiveDemoShowcase() {
       </div>
 
       {/* Render the Video Player for the selected project */}
-      <ProductVideoPlayer key={currentProject.slug} project={currentProject} />
+      <ProductVideoPlayer
+        key={currentProject.slug}
+        project={currentProject}
+        onOpenTheater={() => setIsModalOpen(true)}
+      />
+
+      {/* Video Walkthrough Cinema Modal */}
+      <VideoWalkthroughModal
+        project={currentProject}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }
+
