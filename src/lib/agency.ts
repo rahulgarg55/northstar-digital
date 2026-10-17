@@ -166,7 +166,7 @@ export const selectedProjects = [
       "An enterprise desktop monitoring and workforce productivity intelligence platform with offline telemetry sync, encryption, and tenant isolation.",
     detail:
       "AetherDesk delivers enterprise desktop monitoring, real-time activity tracking, automated screenshot telemetry with privacy masking, multi-tenant organization workspaces, and granular compliance controls.",
-    liveUrl: "https://raid-fish-lil-ist.trycloudflare.com",
+    liveUrl: "https://comparable-bill-ltd-phones.trycloudflare.com",
     liveLinkLabel: "Explore AetherDesk",
     capabilities: [
       "Cross-platform desktop monitoring and telemetry",
