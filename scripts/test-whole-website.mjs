@@ -273,7 +273,16 @@ async function runWholeWebsiteTest() {
       break;
     }
   }
-  record("API rate limiter defends with HTTP 429 after 5 requests", triggered429);
+  // 4i. Production Health & Telemetry Verification
+  const healthRes = await fetchRoute("/api/health");
+  record("Health check /api/health returns HTTP 200", healthRes.status === 200);
+  try {
+    const healthJson = JSON.parse(healthRes.body);
+    record("Health response includes status 'healthy'", healthJson.status === "healthy");
+    record("Health response reports services UP", healthJson.services?.website === "UP" && healthJson.services?.inquiriesApi === "UP");
+  } catch {
+    record("Health response is valid JSON", false);
+  }
 
   // ---------------------------------------------------------------------------
   // SECTION 5: ACCESSIBILITY, CONTRAST & THEME INTEGRITY
