@@ -953,3 +953,26 @@ html.light .agency-project-details li {
 html.light .agency-project-meta > div strong {
   color: #0f172a;
 }
+
+/* Automation banner explicit contrast guarantees */
+html.light .agency-automation-banner {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(5, 150, 105, 0.3) !important;
+}
+html.light .agency-automation-banner strong {
+  color: #0f172a !important;
+}
+html.light .agency-automation-banner p {
+  color: #334155 !important;
+}
+
+html.dark .agency-automation-banner {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+}
+html.dark .agency-automation-banner strong {
+  color: #ffffff !important;
+}
+html.dark .agency-automation-banner p {
+  color: #cbd5e1 !important;
+}

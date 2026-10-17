@@ -31,36 +31,36 @@ export default function BlogIndexPage() {
           <div className="mb-12">
             <Link
               href={`/blog/${featuredArticle.slug}`}
-              className="block group rounded-2xl p-8 border border-white/10 bg-slate-900/60 backdrop-blur-xl hover:border-emerald-500/40 hover:bg-slate-900/80 transition-all duration-300 shadow-2xl"
+              className="block group rounded-2xl p-8 border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl hover:border-emerald-500/50 hover:bg-white dark:hover:bg-slate-900/80 transition-all duration-300 shadow-xl dark:shadow-2xl"
             >
               <div className="flex flex-wrap items-center gap-3 text-xs mb-4">
-                <span className="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-semibold uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 font-semibold uppercase tracking-wider">
                   Featured · {featuredArticle.category}
                 </span>
-                <span className="text-slate-400 flex items-center gap-1">
+                <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1">
                   <Clock size={13} /> {featuredArticle.readTime}
                 </span>
-                <span className="text-slate-500">·</span>
-                <span className="text-slate-400">{featuredArticle.publishedAt}</span>
+                <span className="text-slate-400 dark:text-slate-600">·</span>
+                <span className="text-slate-500 dark:text-slate-400">{featuredArticle.publishedAt}</span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-3 leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-3 leading-tight">
                 {featuredArticle.title}
               </h2>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 max-w-3xl">
+              <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6 max-w-3xl">
                 {featuredArticle.description}
               </p>
 
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10">
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-white/10">
                 <div className="flex items-center gap-2">
-                  <span className="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold text-xs flex items-center justify-center">
+                  <span className="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/40 font-bold text-xs flex items-center justify-center">
                     RG
                   </span>
-                  <span className="text-xs text-slate-300 font-medium">{featuredArticle.author.name}</span>
+                  <span className="text-xs text-slate-700 dark:text-slate-300 font-medium">{featuredArticle.author.name}</span>
                 </div>
 
-                <span className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-1 transition-transform">
                   Read full article <ArrowRight size={14} />
                 </span>
               </div>
@@ -73,23 +73,23 @@ export default function BlogIndexPage() {
           {remainingArticles.map((article) => (
             <article
               key={article.slug}
-              className="group rounded-xl p-6 border border-white/10 bg-slate-900/50 backdrop-blur-lg hover:border-emerald-500/35 hover:bg-slate-900/75 transition-all duration-300 flex flex-col justify-between shadow-lg"
+              className="group rounded-xl p-6 border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/50 backdrop-blur-lg hover:border-emerald-500/40 hover:bg-white dark:hover:bg-slate-900/75 transition-all duration-300 flex flex-col justify-between shadow-md dark:shadow-lg"
             >
               <div>
                 <div className="flex items-center justify-between text-xs mb-3">
-                  <span className="px-2.5 py-0.5 rounded-full bg-white/5 text-emerald-400 border border-white/10 font-medium">
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/5 text-emerald-700 dark:text-emerald-400 border border-slate-200 dark:border-white/10 font-medium">
                     {article.category}
                   </span>
-                  <span className="text-slate-400 flex items-center gap-1">
+                  <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1">
                     <Clock size={12} /> {article.readTime}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors mb-2 leading-snug">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-2 leading-snug">
                   <Link href={`/blog/${article.slug}`}>{article.title}</Link>
                 </h3>
 
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
                   {article.description}
                 </p>
               </div>
@@ -99,18 +99,18 @@ export default function BlogIndexPage() {
                   {article.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded bg-white/5 text-slate-400 border border-white/5"
+                      className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-white/5"
                     >
                       <Tag size={10} /> {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-white/5 text-xs">
-                  <span className="text-slate-400">{article.publishedAt}</span>
+                <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-white/5 text-xs">
+                  <span className="text-slate-500 dark:text-slate-400">{article.publishedAt}</span>
                   <Link
                     href={`/blog/${article.slug}`}
-                    className="inline-flex items-center gap-1 font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
+                    className="inline-flex items-center gap-1 font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
                   >
                     Read article <ArrowRight size={13} />
                   </Link>
@@ -121,25 +121,25 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
-      {/* Daily Automation Announcement Banner */}
+      {/* Daily Automation Announcement Banner (High Contrast in both Light and Dark mode) */}
       <section className="max-w-4xl mx-auto px-6 mb-16">
-        <div className="rounded-2xl p-6 border border-emerald-500/30 bg-emerald-950/20 backdrop-blur-xl flex flex-col sm:flex-row items-center gap-6 justify-between">
+        <div className="agency-automation-banner rounded-2xl p-6 sm:p-7 border border-emerald-500/35 bg-emerald-500/10 dark:bg-emerald-950/30 backdrop-blur-xl flex flex-col sm:flex-row items-center gap-6 justify-between shadow-lg dark:shadow-none transition-colors">
           <div className="flex items-center gap-4">
-            <span className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center shrink-0">
+            <span className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/40 flex items-center justify-center shrink-0">
               <BookOpen size={24} />
             </span>
             <div>
-              <strong className="text-white block font-semibold text-base mb-1">
+              <strong className="text-slate-900 dark:text-white block font-bold text-base sm:text-lg mb-1 tracking-tight">
                 Automated Daily Tech Publishing Pipeline
               </strong>
-              <p className="text-slate-300 text-xs leading-relaxed max-w-xl">
+              <p className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed max-w-xl">
                 Every day at 06:00 UTC, our automated engineering cron analyzes trending developer topics, generates an in-depth architectural breakdown, and auto-publishes it to Northstar Digital.
               </p>
             </div>
           </div>
           <Link
             href="/contact"
-            className="shrink-0 px-4 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors"
+            className="shrink-0 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-slate-950 font-bold text-xs transition-colors shadow-md"
           >
             Request Topic
           </Link>
