@@ -695,6 +695,38 @@ html.dark .agency-submit { color: #042f2e !important; }
   margin: 0;
 }
 
+.agency-tag-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 11px;
+  border: 1px solid var(--agency-card-border);
+  background: var(--agency-card-bg);
+  color: var(--agency-copy) !important;
+  text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+  cursor: pointer;
+}
+.agency-tag-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--agency-lime);
+  color: var(--agency-lime) !important;
+  background: var(--agency-paper);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+.agency-tag-link-active {
+  background: var(--agency-lime) !important;
+  border-color: var(--agency-lime) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+html.dark .agency-tag-link-active {
+  color: #042f2e !important;
+}
+
 /* ==========================================================================
    Keyframes & Responsive Breakpoints
    ========================================================================== */

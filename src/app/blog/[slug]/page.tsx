@@ -239,17 +239,14 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
           </span>
           <div className="flex flex-wrap gap-2">
             {article.tags.map((tag) => (
-              <span
+              <Link
                 key={tag}
-                className="inline-flex items-center gap-1 text-xs px-3 py-1 rounded-lg font-mono border"
-                style={{
-                  backgroundColor: "var(--agency-card-bg)",
-                  borderColor: "var(--agency-line)",
-                  color: "var(--agency-copy)",
-                }}
+                href={`/blog?tag=${encodeURIComponent(tag)}`}
+                className="agency-tag-link"
+                title={`Explore articles on ${tag}`}
               >
                 <Tag size={12} style={{ color: "var(--agency-lime)" }} /> {tag}
-              </span>
+              </Link>
             ))}
           </div>
         </div>

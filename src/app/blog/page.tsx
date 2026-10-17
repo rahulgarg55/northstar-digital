@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, Tag } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, Filter, Tag, X } from "lucide-react";
 import { AgencyFooter, AgencyHeader, SectionEyebrow } from "@/components/agency/site";
 import { techArticles } from "@/lib/articles";
 
@@ -9,9 +9,27 @@ export const metadata = {
     "In-depth articles, architectural blueprints, and engineering standards for building scalable SaaS, enterprise telemetry, performance optimization, and cybersecurity.",
 };
 
-export default function BlogIndexPage() {
-  const featuredArticle = techArticles[0];
-  const remainingArticles = techArticles.slice(1);
+export default async function BlogIndexPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ tag?: string }>;
+}) {
+  const params = (await searchParams) || {};
+  const activeTag = params.tag?.trim();
+
+  // Gather unique tags across all articles
+  const allTags = Array.from(new Set(techArticles.flatMap((a) => a.tags)));
+
+  // Filter articles based on active tag
+  const filteredArticles = activeTag
+    ? techArticles.filter((article) =>
+        article.tags.some((t) => t.toLowerCase() === activeTag.toLowerCase())
+      )
+    : techArticles;
+
+  // When filtering, we display all matching articles in the grid; when not filtering, article 0 is featured
+  const featuredArticle = !activeTag ? filteredArticles[0] : null;
+  const gridArticles = !activeTag ? filteredArticles.slice(1) : filteredArticles;
 
   return (
     <main className="agency-page">
@@ -26,7 +44,105 @@ export default function BlogIndexPage() {
       </section>
 
       <section className="agency-section agency-work-list">
-        {/* Featured Article Card */}
+        {/* Topic Filter Pill Bar */}
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-3 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--agency-muted)" }}>
+            <Filter size={13} style={{ color: "var(--agency-lime)" }} /> Browse Topics &amp; Technologies
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <Link
+              href="/blog"
+              className={`agency-tag-link ${!activeTag ? "agency-tag-link-active" : ""}`}
+            >
+              All Topics ({techArticles.length})
+            </Link>
+            {allTags.map((tag) => {
+              const count = techArticles.filter((a) => a.tags.some((t) => t.toLowerCase() === tag.toLowerCase())).length;
+              const isActive = activeTag?.toLowerCase() === tag.toLowerCase();
+              return (
+                <Link
+                  key={tag}
+                  href={`/blog?tag=${encodeURIComponent(tag)}`}
+                  className={`agency-tag-link ${isActive ? "agency-tag-link-active" : ""}`}
+                >
+                  <Tag size={11} style={{ color: isActive ? "currentColor" : "var(--agency-lime)" }} />
+                  {tag} <span className="opacity-75 text-[10px]">({count})</span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Active Filter Indicator */}
+        {activeTag && (
+          <div
+            className="mb-10 p-4 rounded-xl flex flex-wrap items-center justify-between gap-4 border shadow-sm"
+            style={{
+              backgroundColor: "var(--agency-card-bg)",
+              borderColor: "var(--agency-card-border)",
+            }}
+          >
+            <div className="flex items-center gap-2.5">
+              <span
+                className="w-8 h-8 rounded-lg flex items-center justify-center border"
+                style={{
+                  backgroundColor: "rgba(16, 185, 129, 0.15)",
+                  borderColor: "rgba(16, 185, 129, 0.3)",
+                  color: "var(--agency-lime)",
+                }}
+              >
+                <Tag size={16} />
+              </span>
+              <div>
+                <span className="text-xs font-medium block" style={{ color: "var(--agency-muted)" }}>
+                  Active Topic Filter
+                </span>
+                <span className="text-sm font-bold" style={{ color: "var(--agency-ink)" }}>
+                  Showing {filteredArticles.length} article{filteredArticles.length === 1 ? "" : "s"} tagged with &quot;{activeTag}&quot;
+                </span>
+              </div>
+            </div>
+
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all hover:opacity-85"
+              style={{
+                borderColor: "var(--agency-line)",
+                backgroundColor: "var(--agency-paper)",
+                color: "var(--agency-copy)",
+              }}
+            >
+              <X size={14} /> Clear filter
+            </Link>
+          </div>
+        )}
+
+        {/* Empty State */}
+        {filteredArticles.length === 0 && (
+          <div
+            className="text-center py-16 px-6 rounded-2xl border mb-12"
+            style={{
+              backgroundColor: "var(--agency-card-bg)",
+              borderColor: "var(--agency-card-border)",
+            }}
+          >
+            <Tag size={36} className="mx-auto mb-4" style={{ color: "var(--agency-muted)" }} />
+            <h3 className="text-lg font-bold mb-2" style={{ color: "var(--agency-ink)" }}>
+              No articles found for &quot;{activeTag}&quot;
+            </h3>
+            <p className="text-sm mb-6" style={{ color: "var(--agency-copy)" }}>
+              We don&apos;t have an article published under this specific tag yet.
+            </p>
+            <Link
+              href="/blog"
+              className="agency-button agency-button-light inline-flex"
+            >
+              View all articles
+            </Link>
+          </div>
+        )}
+
+        {/* Featured Article Card (shown on unfiltered view) */}
         {featuredArticle && (
           <div className="mb-12">
             <Link
@@ -90,7 +206,7 @@ export default function BlogIndexPage() {
 
         {/* Article Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {remainingArticles.map((article) => (
+          {gridArticles.map((article) => (
             <article key={article.slug} className="agency-blog-grid-card group">
               <div>
                 <div className="flex items-center justify-between text-xs mb-3">
@@ -118,19 +234,25 @@ export default function BlogIndexPage() {
 
               <div>
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  {article.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded font-mono border"
-                      style={{
-                        backgroundColor: "var(--agency-paper)",
-                        color: "var(--agency-muted)",
-                        borderColor: "var(--agency-line)",
-                      }}
-                    >
-                      <Tag size={10} style={{ color: "var(--agency-lime)" }} /> {tag}
-                    </span>
-                  ))}
+                  {article.tags.map((tag) => {
+                    const isTagActive = activeTag?.toLowerCase() === tag.toLowerCase();
+                    return (
+                      <Link
+                        key={tag}
+                        href={`/blog?tag=${encodeURIComponent(tag)}`}
+                        className={`inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded font-mono border transition-all ${
+                          isTagActive ? "font-bold" : "hover:border-emerald-500 hover:text-emerald-500"
+                        }`}
+                        style={{
+                          backgroundColor: isTagActive ? "var(--agency-lime)" : "var(--agency-paper)",
+                          color: isTagActive ? "#ffffff" : "var(--agency-copy)",
+                          borderColor: isTagActive ? "var(--agency-lime)" : "var(--agency-line)",
+                        }}
+                      >
+                        <Tag size={10} style={{ color: isTagActive ? "#ffffff" : "var(--agency-lime)" }} /> {tag}
+                      </Link>
+                    );
+                  })}
                 </div>
 
                 <div
