@@ -1,3 +1,18 @@
+export interface DemoChapter {
+  time: string;
+  seconds: number;
+  title: string;
+  description: string;
+}
+
+export interface DemoVideoInfo {
+  title: string;
+  badge: string;
+  duration: string;
+  totalSeconds: number;
+  chapters: DemoChapter[];
+}
+
 export const agencyServices = [
   {
     slug: "web-development",
@@ -132,6 +147,38 @@ export const selectedProjects = [
     ],
     stack: ["Next.js", "React", "TypeScript", "Prisma"],
     sourceUrl: "https://github.com/rahulgarg55/bug-tracker",
+    demoVideo: {
+      title: "BugTracker — Multi-Tenant Issue Tracking & Sprint Board Walkthrough",
+      badge: "SaaS Product Walkthrough",
+      duration: "3:15",
+      totalSeconds: 195,
+      chapters: [
+        {
+          time: "0:00",
+          seconds: 0,
+          title: "Multi-Tenant Workspace & Org Switching",
+          description: "Instant switching between isolated client organization workspaces with role-based access control.",
+        },
+        {
+          time: "0:45",
+          seconds: 45,
+          title: "Interactive Sprint Kanban Boards",
+          description: "Real-time ticket drag-and-drop, priority scoring, assignee tagging, and sprint velocity tracking.",
+        },
+        {
+          time: "1:30",
+          seconds: 90,
+          title: "Issue Lifecycle & Markdown Editor",
+          description: "Full rich-text issue creation, reproduction steps, code snippet attachments, and label filters.",
+        },
+        {
+          time: "2:20",
+          seconds: 140,
+          title: "Releases & Automated Changelogs",
+          description: "Tagging version releases, milestone burndown analytics, and GitHub sync verification.",
+        },
+      ],
+    },
   },
   {
     slug: "report-iq",
@@ -151,8 +198,40 @@ export const selectedProjects = [
       "AI-written summaries and branded PDF exports",
       "Scheduled delivery and shareable web reports",
     ],
-    stack: [],
-    sourceUrl: null,
+    stack: ["NestJS", "Next.js", "TypeScript", "Tailwind CSS"],
+    sourceUrl: "https://github.com/rahulgarg55/ReportIQ",
+    demoVideo: {
+      title: "ReportIQ — AI-Assisted Agency Client Reporting Demo",
+      badge: "AI Reporting Demo",
+      duration: "2:50",
+      totalSeconds: 170,
+      chapters: [
+        {
+          time: "0:00",
+          seconds: 0,
+          title: "Multi-Channel Ingestion (GA4 & Time Tracking)",
+          description: "Seamless webhook syncing with Google Analytics 4, developer hours, and client retainers.",
+        },
+        {
+          time: "0:40",
+          seconds: 40,
+          title: "Generative AI Executive Summaries",
+          description: "Synthesizing raw traffic anomalies, conversion spikes, and progress milestones into clear narratives.",
+        },
+        {
+          time: "1:35",
+          seconds: 95,
+          title: "Custom Branded PDF Generation",
+          description: "Dynamic React-rendered print-ready PDFs with custom agency logos, brand colors, and metrics.",
+        },
+        {
+          time: "2:15",
+          seconds: 135,
+          title: "Automated Scheduled Email Cron",
+          description: "Automated recurring dispatch to client executives with encrypted delivery verification.",
+        },
+      ],
+    },
   },
   {
     slug: "aetherdesk",
@@ -175,6 +254,38 @@ export const selectedProjects = [
     ],
     stack: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "Vite", "Electron"],
     sourceUrl: "https://github.com/rahulgarg55/aetherdesk",
+    demoVideo: {
+      title: "AetherDesk Tracker — Enterprise Desktop Telemetry & Privacy Controls",
+      badge: "Architecture & Telemetry Demo",
+      duration: "3:40",
+      totalSeconds: 220,
+      chapters: [
+        {
+          time: "0:00",
+          seconds: 0,
+          title: "Cross-Platform Agent & System Tray Indicator",
+          description: "Lightweight Electron background daemon with transparent employee status tray indicator.",
+        },
+        {
+          time: "0:55",
+          seconds: 55,
+          title: "Active Window Polling & Classification",
+          description: "Real-time application categorization into productive, neutral, and distracting work states.",
+        },
+        {
+          time: "1:45",
+          seconds: 105,
+          title: "Configurable Privacy Masking & Sensitive Blurring",
+          description: "Automatic visual blurring of passwords and sensitive screens in compliance with GDPR Art. 6.",
+        },
+        {
+          time: "2:50",
+          seconds: 170,
+          title: "Offline Telemetry Queue & Cryptographic Sync",
+          description: "Local AES-256-GCM encryption buffer with reliable batch transmission upon network restore.",
+        },
+      ],
+    },
   },
   {
     slug: "productivity-tracker",
@@ -197,6 +308,38 @@ export const selectedProjects = [
     ],
     stack: ["Python", "FastAPI", "SQLite", "Uvicorn", "Tailwind CSS"],
     sourceUrl: "https://github.com/rahulgarg55/productivity-tracker",
+    demoVideo: {
+      title: "Productivity Intelligence Tracker — Python Scoring Engine & Live API",
+      badge: "FastAPI Engine Demo",
+      duration: "2:20",
+      totalSeconds: 140,
+      chapters: [
+        {
+          time: "0:00",
+          seconds: 0,
+          title: "Active Window Polling Engine",
+          description: "FastAPI native background daemon polling desktop state without CPU overhead (<0.5% usage).",
+        },
+        {
+          time: "0:35",
+          seconds: 35,
+          title: "Rolling Focus Score Algorithm",
+          description: "Dynamic mathematical weighted scoring aggregating productive versus distracted intervals.",
+        },
+        {
+          time: "1:15",
+          seconds: 75,
+          title: "Live Metrics Dashboard Stream",
+          description: "Real-time web dashboard displaying session duration, top productive apps, and idle ratios.",
+        },
+        {
+          time: "1:50",
+          seconds: 110,
+          title: "RESTful Bearer Token Endpoints & Swagger",
+          description: "Secure data extraction APIs for external BI dashboards with OpenAPI specification.",
+        },
+      ],
+    },
   },
   {
     slug: "ecommerce-storefront",
@@ -218,5 +361,31 @@ export const selectedProjects = [
     ],
     stack: ["Bootstrap", "HTML", "CSS"],
     sourceUrl: "https://github.com/rahulgarg55/Ecommerce-Website-Clone",
+    demoVideo: {
+      title: "Modern Storefront — Catalog, Filtering & Shopping Cart Walkthrough",
+      badge: "E-Commerce Demo",
+      duration: "2:10",
+      totalSeconds: 130,
+      chapters: [
+        {
+          time: "0:00",
+          seconds: 0,
+          title: "Catalog Grid & Category Navigation",
+          description: "Fluid responsive product grid with dynamic price and category filtering.",
+        },
+        {
+          time: "0:45",
+          seconds: 45,
+          title: "Product Detail & Variant Selector",
+          description: "Interactive image gallery, variant switching, and inventory status indicators.",
+        },
+        {
+          time: "1:20",
+          seconds: 80,
+          title: "Cart State & Checkout Simulation",
+          description: "Persistent shopping cart calculations, discount coupon application, and order review.",
+        },
+      ],
+    },
   },
 ] as const;

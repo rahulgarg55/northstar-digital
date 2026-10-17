@@ -25,6 +25,9 @@ export function ProjectCaseCard({ project }: { project: Project }) {
           <Link className="agency-project-overview-link" href={`/work/${project.slug}`}>
             Product overview <ArrowRight size={15} />
           </Link>
+          <Link className="agency-project-visit-link" href={`/work/${project.slug}`}>
+            ▶ Watch Demo
+          </Link>
           <a
             className="agency-project-visit-link"
             href={project.liveUrl}

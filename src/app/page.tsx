@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Code2, Layers3, MessageCircle, Smartphone, Sparkles } from "lucide-react";
 import { AgencyFooter, AgencyHeader, SectionEyebrow } from "@/components/agency/site";
 import { ProjectCaseCard } from "@/components/agency/project-case-card";
+import { InteractiveDemoShowcase } from "@/components/agency/interactive-demo-showcase";
 import { agencyServices, selectedProjects } from "@/lib/agency";
 
 export const metadata = {
@@ -84,6 +85,8 @@ export default function HomePage() {
             <div><SectionEyebrow>Selected work</SectionEyebrow><h2>Built with purpose.<br /><span>Made to work.</span></h2></div>
             <p>Explore live products and demos from our workbench, spanning engineering workflows, agency reporting, and e-commerce.</p>
           </div>
+          <InteractiveDemoShowcase />
+
           <div className="agency-project-grid">
             {selectedProjects.map((project) => (
               <ProjectCaseCard key={project.slug} project={project} />
