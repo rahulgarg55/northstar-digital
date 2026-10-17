@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     "An independent digital studio for web development, SaaS products, e-commerce, mobile apps, product design, and custom software.",
 };
 
+import { CookieConsent } from "@/components/agency/cookie-consent";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }

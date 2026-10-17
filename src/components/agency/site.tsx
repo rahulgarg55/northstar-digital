@@ -48,11 +48,13 @@ export function AgencyFooter() {
           <a href="tel:+917807221279">Call</a>
           <Link href="/services">Services</Link>
           <Link href="/work">Work</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
         </div>
       </div>
       <div className="agency-footer-bottom">
         <span>© {new Date().getFullYear()} Northstar Studio</span>
-        <span>Independent digital studio · Working worldwide</span>
+        <span>Independent digital studio · Working worldwide · GDPR & CCPA Compliant</span>
       </div>
     </footer>
   );

@@ -2,11 +2,36 @@ import { createAgencyInquirySchema } from "@/lib/agency-inquiry";
 
 export const runtime = "nodejs";
 
+// In-memory rate limiting map: ip -> timestamps
+const rateLimitMap = new Map<string, number[]>();
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const MAX_REQUESTS_PER_WINDOW = 5;
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (rateLimitMap.get(ip) ?? []).filter(
+    (t) => now - t < RATE_LIMIT_WINDOW_MS
+  );
+  if (timestamps.length >= MAX_REQUESTS_PER_WINDOW) {
+    rateLimitMap.set(ip, timestamps);
+    return true;
+  }
+  timestamps.push(now);
+  rateLimitMap.set(ip, timestamps);
+  return false;
+}
+
 function errorResponse(message: string, status: number) {
   return Response.json({ error: { message } }, { status });
 }
 
 export async function POST(request: Request) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : "127.0.0.1";
+
+  if (isRateLimited(ip)) {
+    return errorResponse("Too many requests. Please try again later.", 429);
+  }
   const declaredLength = Number(request.headers.get("content-length") ?? 0);
   if (declaredLength > 16_000) {
     return errorResponse("Your inquiry is too large.", 413);
