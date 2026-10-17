@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowDownRight, ArrowRight, Asterisk } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
+import { CookiePreferencesButton } from "./cookie-button";
 
 export function AgencyHeader() {
   return (
@@ -61,6 +62,7 @@ export function AgencyFooter() {
           <Link href="/blog">Articles</Link>
           <Link href="/privacy">Privacy</Link>
           <Link href="/terms">Terms</Link>
+          <CookiePreferencesButton />
         </div>
       </div>
       <div className="agency-footer-bottom">
