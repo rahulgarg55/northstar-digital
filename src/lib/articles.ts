@@ -439,4 +439,43 @@ Rather than scattering detached microdata across pages, modern SEO aggregates al
 Modern SEO is software architecture: speed, structured clarity, and verifiable domain authority.
 `,
   },
+  {
+    slug: "webassembly-high-performance-browser-telemetry",
+    title: "Accelerating Browser & Desktop Telemetry with Rust and WebAssembly (Wasm)",
+    description: "Compiling native Rust algorithms to WebAssembly for client-side cryptographic hashing, privacy blurring, and audio-visual processing.",
+    category: "Engineering",
+    publishedAt: "October 18, 2026",
+    readTime: "8 min read",
+    author: {
+      name: "Rahul Garg",
+      role: "Founder & Lead Architect, Northstar Digital",
+    },
+    tags: ["WebAssembly","Rust","Performance","Telemetry","Desktop"],
+    content: `### The Limits of JavaScript in Heavy Client Telemetry
+
+In high-frequency desktop tracking and screen processing applications like **AetherDesk Tracker**, performing real-time image hashing and privacy masking in pure JavaScript causes event loop starvation and UI frame drops.
+
+### Offloading to Rust via WebAssembly
+
+Compiling memory-safe Rust to Wasm bytecode yields:
+
+- **Near-Native Execution Speed:** Fast pixel scanning for on-screen sensitive data detection.
+- **Constant Memory Footprint:** Zero garbage collection pauses impacting client productivity.
+- **Cross-Platform Portability:** The identical Wasm binary runs seamlessly in Chrome, Safari, Electron, and Tauri.
+
+\`\`\`rust
+// Rust privacy masking kernel compiled to Wasm
+#[wasm_bindgen]
+pub fn mask_sensitive_screen_regions(buffer: &mut [u8], width: u32, height: u32) {
+    // Scan pixel brightness and blur high-frequency text zones
+    for chunk in buffer.chunks_exact_mut(4) {
+        if is_sensitive_region(chunk) {
+            chunk[0] = 0; // Mask Red
+            chunk[1] = 0; // Mask Green
+            chunk[2] = 0; // Mask Blue
+        }
+    }
+}
+\`\`\``,
+  },
 ];
