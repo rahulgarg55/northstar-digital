@@ -61,6 +61,28 @@ export default function HomePage() {
         ))}
       </section>
 
+      {/* Enterprise Metrics & Architectural Trust */}
+      <section className="py-10 px-6 max-w-6xl mx-auto border-y border-white/10 my-6" aria-label="Engineering metrics">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-2xl sm:text-3xl font-extrabold text-emerald-400">99.98%</span>
+            <span className="text-[11px] uppercase font-semibold text-zinc-400 tracking-wider">Uptime SLA Architecture</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-2xl sm:text-3xl font-extrabold text-cyan-400">3</span>
+            <span className="text-[11px] uppercase font-semibold text-zinc-400 tracking-wider">Desktop SaaS Companions</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-2xl sm:text-3xl font-extrabold text-white">100%</span>
+            <span className="text-[11px] uppercase font-semibold text-zinc-400 tracking-wider">Strict Type-Safe Stacks</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-2xl sm:text-3xl font-extrabold text-emerald-400">&lt;15ms</span>
+            <span className="text-[11px] uppercase font-semibold text-zinc-400 tracking-wider">Edge Read Latencies</span>
+          </div>
+        </div>
+      </section>
+
       <section className="agency-section agency-services-section" id="services">
         <div className="agency-section-heading">
           <div><SectionEyebrow>What we do</SectionEyebrow><h2>Everything you need<br />to make it <span>happen.</span></h2></div>

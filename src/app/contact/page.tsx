@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, Mail, MessageCircle, Phone } from "lucide-react";
 import { AgencyFooter, AgencyHeader, SectionEyebrow } from "@/components/agency/site";
 import { ContactForm } from "@/components/agency/contact-form";
+import { ScopeEstimator } from "@/components/agency/scope-estimator";
 import { agencyServices } from "@/lib/agency";
 
 export const metadata = {
@@ -22,8 +23,8 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
           <h1>Tell us what<br /><span>you&apos;re dreaming up.</span></h1>
           <p>Share a few details and we&apos;ll get back to you with a thoughtful next step—no pressure, no generic pitch.</p>
           <div className="agency-contact-methods">
-            <a href="mailto:gargr0109@gmail.com"><span><Mail size={17} /></span><div><small>Primary email</small><strong>gargr0109@gmail.com</strong></div><ArrowUpRight size={15} /></a>
-            <a href="mailto:harshita30101999@gmail.com"><span><Mail size={17} /></span><div><small>Additional email</small><strong>harshita30101999@gmail.com</strong></div><ArrowUpRight size={15} /></a>
+            <a href="mailto:rahul@northstardigital.com"><span><Mail size={17} /></span><div><small>Studio & Inquiries</small><strong>rahul@northstardigital.com</strong></div><ArrowUpRight size={15} /></a>
+            <a href="mailto:gargr0109@gmail.com"><span><Mail size={17} /></span><div><small>Direct Engineering</small><strong>gargr0109@gmail.com</strong></div><ArrowUpRight size={15} /></a>
             <a href="tel:+917807221279"><span><Phone size={17} /></span><div><small>Call us</small><strong>+91 78072 21279</strong></div><ArrowUpRight size={15} /></a>
             <a href="https://wa.me/917807221279" target="_blank" rel="noreferrer"><span><MessageCircle size={17} /></span><div><small>WhatsApp</small><strong>Message us directly</strong></div><ArrowUpRight size={15} /></a>
           </div>
@@ -32,6 +33,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
         </div>
         <div className="agency-form-panel">
           <div className="agency-form-heading"><h2>A little about your project</h2><p>Fields marked with * are required.</p></div>
+          <ScopeEstimator />
           <ContactForm initialService={initialService} />
         </div>
       </section>

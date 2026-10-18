@@ -1,0 +1,32 @@
+# Northstar Digital Studio — Comprehensive AI Knowledge Base
+
+## Overview
+
+Northstar Digital Studio (https://northstardigital.studio) is a boutique digital engineering studio specializing in high-performance cloud SaaS, workforce intelligence systems, and native cross-platform desktop applications.
+
+### Architectural Philosophy
+1. **Type-Safety End-to-End**: Every system is built in strict TypeScript or typed Python, preventing runtime type anomalies.
+2. **Multi-Tenant Isolation**: Architecture models tenant boundaries at both the edge middleware layer and data access layer (Prisma RLS / MongoDB tenant keys).
+3. **Privacy-by-Design**: Telemetry and employee productivity metrics operate with visible system tray indicators, configurable screen blurring, and GDPR Article 15/17 compliance.
+4. **Resilient Offline-First UX**: Desktop companions incorporate local persistent queues that batch and sync events seamlessly upon network restoration.
+
+## Leadership
+- **Rahul Garg**: Systems Architect, Full-Stack Engineer, and Founder of Northstar Digital Studio.
+- Contact: rahul@northstardigital.com, gargr0109@gmail.com
+- Profile: https://github.com/rahulgarg55
+
+## Core Service Catalog
+1. **Website Development**: High Core Web Vitals, accessible semantic markup, Server-Side Rendering (SSR) & Static Site Generation (SSG).
+2. **MERN Applications**: Robust MongoDB, Express, React, and Node.js backend systems.
+3. **E-commerce**: Conversion-optimized checkout flows, Stripe billing integrations, inventory sync.
+4. **Mobile Apps**: Cross-platform iOS and Android applications.
+5. **SaaS Products**: Multi-tenant architectures, customer portals, billing webhooks, role-based access.
+6. **UI/UX Design**: Space Grotesk and Plus Jakarta Sans typography systems, high-density dashboard layouts.
+7. **SEO & Growth**: Dynamic OpenGraph generators, structured JSON-LD data graphs, sitemaps.
+8. **Native Desktop Companion Apps**: Electron 33+, system tray agents, global hotkeys, background sync.
+
+## Portfolio & In-House Products
+- **AetherDesk Tracker** (Workforce Telemetry): https://github.com/rahulgarg55/aetherdesk
+- **BugTracker** (Defect HUD & Sprint Planner): https://github.com/rahulgarg55/bug-tracker
+- **ProductivityFlow** (Focus Intelligence Agent): https://github.com/rahulgarg55/productivity-tracker
+- **ReportIQ** (AI Client Reporting): https://report-iq-topaz.vercel.app/

@@ -77,26 +77,88 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Northstar Digital Studio",
-  url: "https://northstardigital.studio",
-  logo: "https://northstardigital.studio/logo.png",
-  description:
-    "Independent software and digital product studio specializing in multi-tenant SaaS development, workforce intelligence, and UI/UX design.",
-  founder: {
-    "@type": "Person",
-    name: "Rahul Garg",
-    email: "gargr0109@gmail.com",
-    sameAs: ["https://github.com/rahulgarg55", "https://linkedin.com/in/rahulgarg55"],
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "gargr0109@gmail.com",
-    telephone: "+91-7807221279",
-    contactType: "Customer Inquiries",
-  },
-  priceRange: "$$$$",
-  sameAs: ["https://github.com/rahulgarg55/northstar-digital"],
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://northstardigital.studio/#organization",
+      name: "Northstar Digital Studio",
+      url: "https://northstardigital.studio",
+      logo: "https://northstardigital.studio/opengraph-image",
+      image: "https://northstardigital.studio/opengraph-image",
+      description:
+        "High-performance digital engineering studio specializing in multi-tenant SaaS development, workforce intelligence telemetry, native Electron desktop companion apps, and modern Next.js 16 architectures.",
+      founder: {
+        "@type": "Person",
+        name: "Rahul Garg",
+        jobTitle: "Founder & Lead Systems Architect",
+        email: "rahul@northstardigital.com",
+        sameAs: ["https://github.com/rahulgarg55", "https://linkedin.com/in/rahulgarg55"],
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "rahul@northstardigital.com",
+        telephone: "+91-7807221279",
+        contactType: "Customer & Architectural Inquiries",
+        availableLanguage: ["English", "Hindi"],
+      },
+      priceRange: "$$$$",
+      knowsAbout: [
+        "SaaS Product Development",
+        "Next.js 16 Architecture",
+        "Multi-Tenant Isolation",
+        "Electron Desktop Applications",
+        "Workforce Telemetry & Focus Analytics",
+        "GDPR Compliance Engineering",
+        "Full-Stack TypeScript & React 19",
+      ],
+      sameAs: [
+        "https://github.com/rahulgarg55/northstar-digital",
+        "https://github.com/rahulgarg55",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://northstardigital.studio/#website",
+      url: "https://northstardigital.studio",
+      name: "Northstar Digital Studio",
+      publisher: {
+        "@id": "https://northstardigital.studio/#organization",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "AetherDesk Tracker",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Windows, macOS, Linux, Web",
+      url: "https://northstardigital.studio/work/aetherdesk",
+      description: "Enterprise workforce telemetry, multi-tenant desktop monitoring, and compliance analytics platform.",
+      author: {
+        "@id": "https://northstardigital.studio/#organization",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "BugTracker & Desktop Companion",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Windows, macOS, Linux, Web",
+      url: "https://northstardigital.studio/work/bug-tracker",
+      description: "Multi-tenant engineering issue tracking, sprint management SaaS, and instant Electron defect HUD companion.",
+      author: {
+        "@id": "https://northstardigital.studio/#organization",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "ProductivityFlow Desktop Agent",
+      applicationCategory: "ProductivityApplication",
+      operatingSystem: "Windows, macOS, Linux",
+      url: "https://northstardigital.studio/work/productivity-tracker",
+      description: "Workforce focus telemetry agent with real-time foreground window categorization, focus scoring, and GDPR compliance.",
+      author: {
+        "@id": "https://northstardigital.studio/#organization",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({

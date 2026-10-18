@@ -317,4 +317,126 @@ export const db = createClient({
 
 Ideal for read-heavy workforce intelligence dashboards, public documentation platforms, and product catalogs where 95% of database operations are queries.`,
   },
+  {
+    slug: "building-desktop-companion-apps-electron-typescript",
+    title: "Architecting Native Desktop Companion Apps for Cloud SaaS: Electron, TypeScript & Offline Queues",
+    description: "How to engineer cross-platform desktop companion apps with global system HUD hotkeys, native system tray telemetry, and resilient offline queue synchronization.",
+    category: "Engineering",
+    publishedAt: "October 18, 2026",
+    readTime: "8 min read",
+    author: {
+      name: "Rahul Garg",
+      role: "Founder & Lead Architect, Northstar Digital",
+    },
+    tags: ["Electron", "Desktop SaaS", "TypeScript", "Offline Queue", "System Tray", "Telemetry"],
+    content: `
+### Why Cloud SaaS Needs Native Desktop Companions
+
+While modern web browsers offer impressive capabilities, browser sandboxes inherently prevent applications from responding to global OS hotkeys, monitoring background active window telemetry, or maintaining uninterrupted offline event queues. 
+
+In engineering our flagship platforms—**BugTracker** (instant defect logging HUD) and **ProductivityFlow** (active focus telemetry agent)—we adopted an architecture that marries the agility of web technologies with native OS integration.
+
+### Core Architecture: Electron 33 + TypeScript + Shared Protocols
+
+\`\`\`typescript
+// Global hotkey registration & instant HUD popup
+import { app, BrowserWindow, globalShortcut, Tray, Menu } from "electron";
+
+export function setupCompanionHotkeys(window: BrowserWindow) {
+  // Global Shortcut: Ctrl+Shift+B (or Cmd+Shift+B on macOS)
+  globalShortcut.register("CommandOrControl+Shift+B", () => {
+    if (!window.isVisible()) {
+      window.show();
+    }
+    window.focus();
+    window.webContents.send("hotkey:quick-logger");
+  });
+}
+\`\`\`
+
+### 1. Resilient Offline-First Event Queue
+
+Engineers frequently encounter software defects while disconnected or in flight. A companion app must never lose an issue submission or telemetry ping due to connection timeout:
+
+- **Local Persistence:** Telemetry pulses and new tickets are written to a localized, encrypted JSON store in \`app.getPath('userData')\`.
+- **Automatic Exponential Backoff:** When network interfaces regain connectivity, the main process triggers a batched synchronization loop against the Next.js or FastAPI backend.
+- **Visual Sync Status:** The companion UI displays an amber dot indicating queued items, transitioning to emerald upon verified server confirmation.
+
+### 2. Foreground Window Focus Telemetry
+
+For productivity analytics, privacy and system efficiency are paramount:
+
+- Query active foreground process handles using lightweight OS APIs rather than high-overhead polling.
+- Categorize processes client-side into \`Productive\`, \`Distracted\`, or \`Idle\` to minimize data egress.
+- Broadcast real-time focus percentage directly to the Windows/macOS system tray tooltip.
+
+### Engineering Takeaway
+
+Building an Electron companion app turns a passive web SaaS into an indispensable daily driver that lives at the engineer's fingertips without context switching.
+`,
+  },
+  {
+    slug: "nextjs-seo-core-web-vitals-llm-optimization",
+    title: "Modern SEO & AI Discoverability in 2026: Next.js 16, Dynamic OpenGraph & LLMs.txt",
+    description: "A technical guide to dominating search and AI answer engines using Next.js 16 ImageResponse, Schema.org @graph networks, and the llms.txt protocol.",
+    category: "Architecture",
+    publishedAt: "October 18, 2026",
+    readTime: "7 min read",
+    author: {
+      name: "Rahul Garg",
+      role: "Founder & Lead Architect, Northstar Digital",
+    },
+    tags: ["SEO", "Next.js 16", "LLMs.txt", "Schema.org", "Core Web Vitals", "OpenGraph"],
+    content: `
+### The New Search Frontier: Traditional Crawlers + AI Answer Engines
+
+In 2026, over 40% of technical queries are answered directly by LLM-driven research agents (Perplexity, ChatGPT Search, Claude, and Gemini) before a user clicks a traditional link. Optimizing digital products requires a dual-track strategy: pristine Core Web Vitals for traditional search engines, and structured semantic context for AI models.
+
+### 1. Implementing the llms.txt Specification
+
+The \`llms.txt\` standard provides a curated, Markdown-based synopsis of your domain, service catalog, and product documentation, allowing AI crawlers to ingest accurate company knowledge without scraping dynamic DOM nodes:
+
+\`\`\`markdown
+# Northstar Digital Studio
+> Independent software engineering studio specializing in multi-tenant SaaS platforms, workforce telemetry, and native desktop companion apps.
+
+## Flagship Products
+- **AetherDesk Tracker**: Workforce telemetry & desktop monitoring SaaS.
+- **BugTracker**: Defect HUD with global hotkey (Ctrl+Shift+B) and offline queue.
+- **ProductivityFlow**: Real-time focus scoring and active window classification.
+\`\`\`
+
+### 2. Dynamic OpenGraph Generation with Next.js ImageResponse
+
+High-CTR social sharing demands unique, high-resolution preview cards for every service and case study:
+
+\`\`\`typescript
+import { ImageResponse } from "next/og";
+
+export const size = { width: 1200, height: 630 };
+
+export default async function Image() {
+  return new ImageResponse(
+    (
+      <div style={{ display: "flex", flexDirection: "column", backgroundColor: "#090d16", color: "#fff", padding: 60 }}>
+        <h1>Northstar Digital Studio</h1>
+        <p>Bespoke Multi-Tenant SaaS Engineering</p>
+      </div>
+    ),
+    { ...size }
+  );
+}
+\`\`\`
+
+### 3. Unified Schema.org @graph Networks
+
+Rather than scattering detached microdata across pages, modern SEO aggregates all entities into a unified JSON-LD \`@graph\`:
+- Connect \`ProfessionalService\` directly to \`founder\` (Rahul Garg) and \`SoftwareApplication\` catalog.
+- Associate \`BreadcrumbList\` on hierarchical paths to generate rich sitelinks in Google SERPs.
+
+### Conclusion
+
+Modern SEO is software architecture: speed, structured clarity, and verifiable domain authority.
+`,
+  },
 ];

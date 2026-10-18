@@ -1,0 +1,48 @@
+# Northstar Digital Studio
+
+> Northstar Digital Studio is an independent software engineering and digital product studio founded and led by Rahul Garg. The studio designs, architects, and builds production-ready SaaS platforms, enterprise workforce intelligence tools, native desktop companion apps (Electron + TypeScript), full-stack applications, and scalable digital architectures.
+
+## Core Services
+
+- **Web Development**: Fast, accessible, high-performance websites built with Next.js 16, React 19, TypeScript, and modern responsive design.
+- **MERN & Full-Stack Applications**: Scalable architectures built with MongoDB/PostgreSQL, Express/FastAPI, React, and Node.js.
+- **SaaS Product Engineering**: Multi-tenant cloud platforms featuring row-level security, tenant isolation, billing integration (Stripe), and role-based access control.
+- **Native Desktop Companion Apps**: Cross-platform desktop tools built with Electron, TypeScript, Vite, system tray background execution, global HUD shortcuts, and offline queue synchronization.
+- **Workforce Intelligence & Telemetry**: Privacy-first employee focus monitors, automated application classification, and real-time productivity scoring complying with GDPR Article 15/17.
+- **UI/UX Design & Design Systems**: Considered interfaces, design systems, and usable prototypes that translate product goals into high-impact digital experiences.
+- **Technical SEO & Growth Architecture**: Structured data graphs (Schema.org), Core Web Vitals optimization, and crawl-optimized architectures.
+
+## Flagship Products & Work
+
+- **AetherDesk Tracker**: Enterprise workforce telemetry & desktop SaaS platform with real-time activity tracking, automated screenshot telemetry with privacy masking, multi-tenant organization workspaces, and WebRTC live view.
+  - Stack: TypeScript, React, Node.js, Express, MongoDB, Vite, Electron.
+  - Live Demo: https://comparable-bill-ltd-phones.trycloudflare.com
+  - Source: https://github.com/rahulgarg55/aetherdesk
+
+- **BugTracker & Desktop Companion**: Multi-tenant engineering defect and sprint management SaaS with an instant Electron HUD hotkey (Ctrl+Shift+B) and offline queue resilience.
+  - Stack: Next.js 16, React 19, TypeScript, Prisma ORM, Electron.
+  - Source: https://github.com/rahulgarg55/bug-tracker
+
+- **ProductivityFlow Desktop Agent**: Real-time workforce focus telemetry agent that classifies foreground application activity into productive, distracted, or idle states, computing live focus scores with FastAPI sync and GDPR compliance.
+  - Stack: Electron, TypeScript, Python, FastAPI, SQLite WAL.
+  - Source: https://github.com/rahulgarg55/productivity-tracker
+
+- **ReportIQ**: AI-assisted client reporting platform for digital agencies, synthesizing Google Analytics and time-tracking data into automated executive summaries.
+  - Live URL: https://report-iq-topaz.vercel.app/
+
+## Leadership & Contact
+
+- **Founder & Lead Architect**: Rahul Garg
+- **Email**: rahul@northstardigital.com / gargr0109@gmail.com
+- **Phone**: +91-7807221279
+- **GitHub**: https://github.com/rahulgarg55
+- **Website**: https://northstardigital.studio
+- **Inquiry Portal**: https://northstardigital.studio/contact
+
+## Documentation & Key Links
+
+- [Services](https://northstardigital.studio/services): Detailed service catalog and deliverables
+- [Selected Work](https://northstardigital.studio/work): In-depth case studies and live demos
+- [Technical Blog](https://northstardigital.studio/blog): Architecture breakdowns, multi-tenancy guides, and engineering articles
+- [Privacy Policy](https://northstardigital.studio/privacy): GDPR and CCPA compliance disclosures
+- [Terms of Service](https://northstardigital.studio/terms): Studio engagement terms

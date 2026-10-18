@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Clock, Tag } from "lucide-react";
 import { AgencyFooter, AgencyHeader, SectionEyebrow } from "@/components/agency/site";
+import { ArticleShareBar } from "@/components/agency/article-share";
 import { techArticles } from "@/lib/articles";
 
 export function generateStaticParams() {
@@ -149,6 +150,8 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
             </div>
           </div>
         </header>
+
+        <ArticleShareBar title={article.title} slug={article.slug} />
 
         {/* Article Body Content */}
         <div className="max-w-none space-y-6 text-sm sm:text-base leading-relaxed">
